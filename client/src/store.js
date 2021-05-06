@@ -8,7 +8,7 @@ import rootSaga from './redux/sagas'
 
 export const history = createBrowserHistory()
 
-const createSagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 const initialState = {}
 
@@ -22,10 +22,9 @@ const composeEnhancer = process.env.NODE_ENV === "production"
 const  store = createStore(
     createRootReducer(history),
     initialState, //웹에 모든 상태를 담고 있는 초기갑ㅅ // 모든 갑을 store에서 다 저장함.
-    composeEnhancer(applyMiddleware(..middlewares))
+    composeEnhancer(applyMiddleware(...middlewares))
 )
 sagaMiddleware.run(rootSaga)
 
 export default store
 
-//reducers는 요청을 받고 처리하는 곳이고  saga는  reducers의 함수를 정의하는곳 .

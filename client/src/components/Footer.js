@@ -1,7 +1,25 @@
 import React from 'react';
+import {Row, Col} from "reactstrap";
 
 const Footer = () => {
-    return <div>Footer</div>
+    const thisYear = () => {
+        const year = new Date().getFullYear();
+        return year
+    };
+
+    return (
+        // <div id="main-footer" className="text-center m-auto"> 
+        // m-auto 왼쪽오른쪽 여백 알아서 맞춰라. m : margin
+        <div id="main-footer" className="text-center p-2"> 
+            <Row>
+                <Col>
+                    <p>
+                        Copyright &copy; <span>{thisYear()}</span>
+                    </p>
+                </Col>
+            </Row>
+        </div>
+    );
 };
 
 export default Footer;
